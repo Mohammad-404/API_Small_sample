@@ -1,0 +1,63 @@
+- api : application programme interface 
+eg. connection website with application 
+------------------
+HTTP verbs : 
+get, post, put, delete
+------------------
+Http status codes:
+200 : ok, success code
+404 : not found url or not found api or deleted...
+500 : error from code
+403 : authorization error [forebidden]
+mean authorization and authintication
+authorization mean is permission 
+authintication mean is you are in session like login
+-------------------
+authintication api : is it mean 
+who can use this api ? that set..
+-------------------
+*Important*
+Note : anyone need register on website he should have a token.
+// Laravel API Token using JWT Packages
+JWT -> this is work a generation to api.
+https://jwt-auth.readthedocs.io/en/docs/laravel-installation/
+----------------
+api token will save on JWT not database 
+on model we will use this method : 
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+
+--------------
+note
+create middleware and then i wil register 
+now follow step to register 
+: i will register middleware at kernel.php inside provider
+
+-------------
+add key password for API 
+ - create middleware [eg. middle.php]
+ - register middleware in Kernel.php *copy line auth
+ - edit in file midleware middle.php
+ - write if ($request->anyVariable !== env("AnyVariable","password_deafult")) return response()->json(['message'=>'asjkdsad])
+note : i can add pasword api at env direct like : AnyVariable = asjdkjasnd
+ - add name middleware from kernel to be added on routes api 
+{Done}
+ - now send link api using postman with param key api and password to access this link
+
+-----------------------
+
+all api returned using json 
+eg. response()->json();
+-------------------
+Video number 7.
+How can i get data from mobile api to website
+
+just if i want create traits
+
+traits GeneralTraits i will save as testTraits.php
+i can recall it any where without implementing and extends just [use ...]
+-------------------
+Video 8 for login with api
