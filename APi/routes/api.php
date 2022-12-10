@@ -30,5 +30,12 @@ Route::group(['middleware' => ['api','checkPassword']],function(){ // here is we
     Route::post('test_api','categoryController@index');
     Route::post('test_api_by_id','categoryController@getbyID');
 
+    Route::group(['prefix' => 'admin', 'namespace' => 'admin'],function(){
+        Route::post('login','AuthController@login');
+    });
+
 });
 
+Route::group(['middleware' => ['api','checkPassword','checkAdminToken:admin-api']],function(){ 
+    Route::get('home_page','categoryController@homepage');
+});
